@@ -13,6 +13,8 @@ import com.hencoder.hencoderpracticedraw6.R;
 public class Practice05MultiProperties extends ConstraintLayout {
     Button animateBt;
     ImageView imageView;
+    int multiPropertiesStateCount = 2;
+    int multiPropertiesState = 0;
 
     public Practice05MultiProperties(Context context) {
         super(context);
@@ -39,6 +41,32 @@ public class Practice05MultiProperties extends ConstraintLayout {
             @Override
             public void onClick(View v) {
                 // TODO 在这里处理点击事件，同时对多个属性做动画
+                // TODO 在这里处理点击事件，通过 View.animate().alpha() 来改变 View 的透明度
+                switch (multiPropertiesState) {
+                    case 0:
+                        imageView.animate().scaleX(1)
+                                .scaleY(1)
+                                .alpha(1)
+                                .translationX(500)
+                                .rotation(360)
+                                .translationY(100);
+                        break;
+                    case 1:
+                        imageView.animate().scaleX(0)
+                                .scaleY(0)
+                                .alpha(0)
+                                .rotation(0)
+                                .translationX(0)
+                                .translationY(0);
+                        break;
+                    default:
+                        break;
+                }
+                multiPropertiesState++;
+                if (multiPropertiesState == multiPropertiesStateCount) {
+                    multiPropertiesState = 0;
+                }
+
             }
         });
     }

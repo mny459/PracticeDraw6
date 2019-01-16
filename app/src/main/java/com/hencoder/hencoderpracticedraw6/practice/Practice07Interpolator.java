@@ -84,7 +84,7 @@ public class Practice07Interpolator extends LinearLayout {
             public void onClick(View v) {
                 imageView.animate()
                         .translationX(Utils.dpToPixel(150))
-                        .setDuration(600)
+                        .setDuration(1000)
                         .setInterpolator(interpolators[spinner.getSelectedItemPosition()])
                         .withEndAction(new Runnable() {
                             @Override
